@@ -284,3 +284,190 @@
                             <td><input type="text" placeholder="處理情形"></td>
                             <td><input type="text" placeholder="YYYY-MM-DD HH:MM"></td>
                             <td><input type="text" placeholder="備註信息"></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>沙鹿分局</td>
+                            <td><input type="text" placeholder="輸入地點"></td>
+                            <td><input type="text" placeholder="YYYY-MM-DD HH:MM"></td>
+                            <td><input type="text" placeholder="災害狀況描述"></td>
+                            <td class="empty-col"></td>
+                            <td><input type="text" placeholder="災害原因"></td>
+                            <td><input type="text" placeholder="處理情形"></td>
+                            <td><input type="text" placeholder="YYYY-MM-DD HH:MM"></td>
+                            <td><input type="text" placeholder="備註信息"></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>民權分局</td>
+                            <td><input type="text" placeholder="輸入地點"></td>
+                            <td><input type="text" placeholder="YYYY-MM-DD HH:MM"></td>
+                            <td><input type="text" placeholder="災害狀況描述"></td>
+                            <td class="empty-col"></td>
+                            <td><input type="text" placeholder="災害原因"></td>
+                            <td><input type="text" placeholder="處理情形"></td>
+                            <td><input type="text" placeholder="YYYY-MM-DD HH:MM"></td>
+                            <td><input type="text" placeholder="備註信息"></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>東山分局</td>
+                            <td><input type="text" placeholder="輸入地點"></td>
+                            <td><input type="text" placeholder="YYYY-MM-DD HH:MM"></td>
+                            <td><input type="text" placeholder="災害狀況描述"></td>
+                            <td class="empty-col"></td>
+                            <td><input type="text" placeholder="災害原因"></td>
+                            <td><input type="text" placeholder="處理情形"></td>
+                            <td><input type="text" placeholder="YYYY-MM-DD HH:MM"></td>
+                            <td><input type="text" placeholder="備註信息"></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>東勢分局</td>
+                            <td><input type="text" placeholder="輸入地點"></td>
+                            <td><input type="text" placeholder="YYYY-MM-DD HH:MM"></td>
+                            <td><input type="text" placeholder="災害狀況描述"></td>
+                            <td class="empty-col"></td>
+                            <td><input type="text" placeholder="災害原因"></td>
+                            <td><input type="text" placeholder="處理情形"></td>
+                            <td><input type="text" placeholder="YYYY-MM-DD HH:MM"></td>
+                            <td><input type="text" placeholder="備註信息"></td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>豐原分局</td>
+                            <td><input type="text" placeholder="輸入地點"></td>
+                            <td><input type="text" placeholder="YYYY-MM-DD HH:MM"></td>
+                            <td><input type="text" placeholder="災害狀況描述"></td>
+                            <td class="empty-col"></td>
+                            <td><input type="text" placeholder="災害原因"></td>
+                            <td><input type="text" placeholder="處理情形"></td>
+                            <td><input type="text" placeholder="YYYY-MM-DD HH:MM"></td>
+                            <td><input type="text" placeholder="備註信息"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h2>使用说明</h2>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div>
+                    <h3>填写表格数据</h3>
+                    <p>在各分局对应的输入框中填写灾害信息，包括地点、通報时间、灾害状况、原因、处理情形、预计复原时间和备注。</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>
+                    <h3>导出Excel文件</h3>
+                    <p>点击"导出Excel文件"按钮，系统将自动生成并下载格式完整的灾害通报表Excel文件。</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div>
+                    <h3>添加新记录</h3>
+                    <p>如需添加新的分局记录，点击"添加新记录"按钮，系统将在表格末尾添加新行。</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>灾害通报管理系统 © 2024 内政部灾害防救中心 | 版本 2.1.4</p>
+        </div>
+    </div>
+
+    <script>
+        // 添加新行功能
+        function addRow() {
+            const table = document.getElementById('reportTable').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+            const rowCount = table.rows.length;
+            
+            // 创建单元格
+            const cells = [];
+            for (let i = 0; i < 10; i++) {
+                cells.push(newRow.insertCell(i));
+            }
+            
+            // 设置单元格内容
+            cells[0].innerHTML = rowCount;
+            cells[1].innerHTML = '<input type="text" placeholder="輸入分局名稱">';
+            cells[2].innerHTML = '<input type="text" placeholder="輸入地點">';
+            cells[3].innerHTML = '<input type="text" placeholder="YYYY-MM-DD HH:MM">';
+            cells[4].innerHTML = '<input type="text" placeholder="災害狀況描述">';
+            cells[5].className = 'empty-col';
+            cells[6].innerHTML = '<input type="text" placeholder="災害原因">';
+            cells[7].innerHTML = '<input type="text" placeholder="處理情形">';
+            cells[8].innerHTML = '<input type="text" placeholder="YYYY-MM-DD HH:MM">';
+            cells[9].innerHTML = '<input type="text" placeholder="備註信息">';
+        }
+        
+        // 清空表格功能
+        function clearAll() {
+            if (confirm('確定要清空表格中的所有數據嗎？此操作不可恢復。')) {
+                const inputs = document.querySelectorAll('#reportTable tbody input');
+                inputs.forEach(input => {
+                    input.value = '';
+                });
+            }
+        }
+        
+        // 导出Excel功能
+        function exportToExcel() {
+            // 创建工作簿
+            const wb = XLSX.utils.book_new();
+            wb.SheetNames.push("災害通報表");
+            
+            // 准备数据
+            const data = [];
+            
+            // 添加标题行
+            data.push(["填表日期: 114年07月06日", "", "", "", "", "", "", "", "", ""]);
+            
+            // 添加表头
+            data.push(["項次", "總、分局別", "地點", "通報(發現)時間", "災害狀況", "", "原因", "處理情形", "(預計)復原時間", "備註"]);
+            
+            // 添加表格数据
+            const rows = document.querySelectorAll('#reportTable tbody tr');
+            rows.forEach(row => {
+                const rowData = [];
+                const cells = row.querySelectorAll('td');
+                
+                cells.forEach((cell, index) => {
+                    if (index === 0) {
+                        // 项次
+                        rowData.push(cell.textContent);
+                    } else if (index === 5) {
+                        // 空列
+                        rowData.push("");
+                    } else {
+                        // 输入框内容
+                        const input = cell.querySelector('input');
+                        rowData.push(input ? input.value : cell.textContent);
+                    }
+                });
+                
+                data.push(rowData);
+            });
+            
+            // 创建工作表
+            const ws = XLSX.utils.aoa_to_sheet(data);
+            
+            // 合并标题行单元格
+            ws['!merges'] = [
+                {s: {r: 0, c: 0}, e: {r: 0, c: 9}}
+            ];
+            
+            // 添加到工作簿
+            wb.Sheets["災害通報表"] = ws;
+            
+            // 导出Excel
+            XLSX.writeFile(wb, "災害通報表_1140706.xlsx");
+        }
+    </script>
+</body>
+</html>
